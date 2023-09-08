@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023090803
+      author: shahrzagahramanov
+      changes:
+        - createTable:
+            tableName: address
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: pk-address-123
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: student_id
+                  type: BIGINT

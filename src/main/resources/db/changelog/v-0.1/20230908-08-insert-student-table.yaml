@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230908-05
+      author: shahrzagahramanov
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: name
+                  value: Shahrza
+              - column:
+                  name: last_name
+                  value: Gahramanov
+              - column:
+                  name: email
+                  value: gshahrza@gmail.com
+              - column:
+                  name: age
+                  value: 22
+            tableName: student

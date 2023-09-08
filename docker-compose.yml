@@ -1,0 +1,37 @@
+version: '3.3'
+
+services:
+  ms-bootcamp-mysql:
+    hostname: ${db_hostname}
+    image: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3308:3306"
+    environment:
+      MYSQL_USERNAME: root
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DB: ms
+  backend:
+    hostname: ms-backend
+    image: spring-boot:v.1
+    ports:
+      - '8080:8080'
+    environment:
+      DATABASE_HOSTNAME: ${db_hostname}
+    depends_on:
+      - ms-bootcamp-mysql
+volumes:
+  db_data: {}
+
+
+#  db:
+#    image: postgres
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - db_data:/var/lib/postgresql
+#    environment:
+#      POSTGRES_DB: web-form
+#      POSTGRES_USER: postgres
+#      POSTGRES_PASSWORD: password

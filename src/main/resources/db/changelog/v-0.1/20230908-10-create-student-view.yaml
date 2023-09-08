@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230908-10
+      author: liquibase-docs
+      changes:
+        - createView:
+            selectQuery: select s.name as student_name,a.* from student s left join address a on s.id = a.student_id ;
+            viewName: v_student

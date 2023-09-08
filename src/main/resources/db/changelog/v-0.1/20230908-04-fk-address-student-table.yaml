@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2023
+      author: shahrzagahramanov
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: student_id
+            baseTableName: address
+            constraintName: fk_address_student
+            onDelete: CASCADE
+            onUpdate: RESTRICT
+            referencedColumnNames: id
+            referencedTableName: student
+            validate: true

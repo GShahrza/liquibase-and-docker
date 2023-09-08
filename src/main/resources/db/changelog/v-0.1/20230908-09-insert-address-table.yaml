@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230908-09
+      author: shahrzagahramanov
+      changes:
+        - insert:
+            columns:
+              - column:
+                  name: name
+                  value: Baku
+              - column:
+                  name: student_id
+                  value: 2
+            tableName: address

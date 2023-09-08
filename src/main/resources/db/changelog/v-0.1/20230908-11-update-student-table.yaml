@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230908-11
+      author: shahrzagahramanov
+      changes:
+        - update:
+            columns:
+              - column:
+                  name: name
+                  value: Rza
+            tableName: student
+            where: id=2

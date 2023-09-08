@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230908-02
+      author: shahrzagahramanov
+      changes:
+        - addColumn:
+            tableName: student
+            columns:
+              - column:
+                  name: photo
+                  type: longblob
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
