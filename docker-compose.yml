@@ -1,28 +1,34 @@
-version: '3.3'
+version: '3.2'
 
 services:
-  ms-bootcamp-mysql:
-    hostname: ${db_hostname}
+  db_mysql:
+    container_name: mysql_v1
+    hostname: ${MYSQL_HOSTNAME}
     image: mysql
     volumes:
       - db_data:/var/lib/mysql
     ports:
-      - "3308:3306"
+      - "3306:3306"
     environment:
-      MYSQL_USERNAME: root
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DB: ms
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
   backend:
-    hostname: ms-backend
-    image: spring-boot:v.1
+    container_name: spring-boot_v1
+    hostname: ${SPRING_HOSTNAME}
+    image: spring-boot:v1
     ports:
       - '8080:8080'
     environment:
-      DATABASE_HOSTNAME: ${db_hostname}
+      DATABASE_HOSTNAME: ${MYSQL_HOSTNAME}
+      DATABASE_PORT: ${MYSQL_PORT}
+      DATABASE_USERNAME: ${MYSQL_USER}
+      DATABASE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     depends_on:
-      - ms-bootcamp-mysql
+      - db_mysql
 volumes:
   db_data: {}
+
 
 
 #  db:
